@@ -1,0 +1,41 @@
+import java.lang.*;
+import java.util.*;
+public class Main {
+    public static int Solve(String s) {
+        int count = 0;
+        for(int i=0; i<s.length(); i++) 
+        {
+            for(int j=i; j<s.length(); j++)
+            {
+                if(isPalindrom(s.substring(i,j+1))) 
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+ 
+    public static boolean isPalindrom(String s)
+    {
+        int i=0,j=s.length()-1;
+        while(i<=j)
+        {
+            if(s.charAt(i)!=s.charAt(j))
+            {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+    
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       String str=sc.next();
+       int count=0;
+       count=Solve(str);
+       System.out.println(count);
+    }
+}
